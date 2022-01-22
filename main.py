@@ -17,10 +17,10 @@ event2 = datetime.datetime.now()
 agewine = event2 - event1
 
 event1_year = event1.year
-event2_year= event2.year
+event2_year = event2.year
 agewine_year = event2_year-event1_year
 
-excel_data_df = pandas.read_excel('wine2.xlsx', sheet_name='Лист1')
+excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1')
 wines = excel_data_df.to_dict(orient='record')
 
 #grouped_wines = {}
