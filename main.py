@@ -29,13 +29,15 @@ for wine in wines:
     for category in wine:
         if isNaN(wine[category]):
             wine[category] = ''
-    
+
 #    if grouped_wines.get(wine['Категория']) == None:
 #        grouped_wines[wine['Категория']] = [wine]
 #    else:
 #        grouped_wines[wine['Категория']].append(wine)
     grouped_wines[wine['Категория']].append(wine)
 
+sorted_items = sorted(grouped_wines.items(), key=lambda x: x[0])
+grouped_wines = dict(sorted_items)
 pprint(grouped_wines)
 
 env = Environment(
@@ -46,7 +48,7 @@ template = env.get_template('template.html')
 
 rendered_page = template.render(
     agewine_year=agewine_year,
-    wines=wines
+    grouped_wines=grouped_wines
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
