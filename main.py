@@ -14,8 +14,7 @@ foundation_year = 1920
 current_year = datetime.datetime.now().year
 company_age = foundation_year - current_year
 
-excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1')
-wines = excel_data_df.to_dict(orient='record')
+wines = pandas.read_excel('wine3.xlsx', sheet_name='Лист1').to_dict(orient='record')
 
 grouped_wines = defaultdict(list)
 for wine in wines:
