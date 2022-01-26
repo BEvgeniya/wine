@@ -24,7 +24,7 @@ args = args_parser.parse_args()
 
 foundation_year = 1920
 current_year = datetime.datetime.now().year
-company_age = foundation_year - current_year
+company_age = current_year - foundation_year
 
 wines = pandas.read_excel(args.filename, sheet_name=args.sheet).to_dict(orient='record')
 
