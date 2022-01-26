@@ -115,7 +115,7 @@
 
         <div class="row">
 
-        {% for category in grouped_wines %}
+        {% for category in grouped_wines|sort() %}
           <div class="col-12 section-title text-center mb-5">
           <h2 class="d-block">{{category}}</h2>
           </div>
