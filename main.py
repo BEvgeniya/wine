@@ -10,9 +10,9 @@ def isNaN(num):
     return num != num
 
 
-year_of_foundation = 1920
+foundation_year = 1920
 current_year = datetime.datetime.now().year
-agewine_year = year_of_foundation - current_year
+company_age = foundation_year - current_year
 
 excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1')
 wines = excel_data_df.to_dict(orient='record')
@@ -34,7 +34,7 @@ env = Environment(
 template = env.get_template('template.html')
 
 rendered_page = template.render(
-    agewine_year=agewine_year,
+    company_age=company_age,
     grouped_wines=grouped_wines
 )
 
