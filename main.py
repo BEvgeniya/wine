@@ -1,5 +1,6 @@
 import datetime
 import pandas
+import argparse
 
 from collections import defaultdict
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -10,11 +11,22 @@ def isNaN(num):
     return num != num
 
 
+args_parser = argparse.ArgumentParser(description='Программа импортирует данные из Excel-файла на сайт')
+args_parser.add_argument('filename',
+                         nargs='?',
+                         help='Имя файла с расширением .xls/.xlsx. Значение по-умолчанию: wine3.xlsx',
+                         default='wine3.xlsx')
+args_parser.add_argument('sheet',
+                         nargs='?',
+                         help='Наименование листа Excel. Значение по-умолчанию: Лист1',
+                         default='Лист1')
+args = args_parser.parse_args()
+
 foundation_year = 1920
 current_year = datetime.datetime.now().year
 company_age = foundation_year - current_year
 
-wines = pandas.read_excel('wine3.xlsx', sheet_name='Лист1').to_dict(orient='record')
+wines = pandas.read_excel(args.filename, sheet_name=args.sheet).to_dict(orient='record')
 
 grouped_wines = defaultdict(list)
 for wine in wines:
