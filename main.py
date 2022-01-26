@@ -11,8 +11,8 @@ def main():
     args_parser = argparse.ArgumentParser(description='Программа импортирует данные из Excel-файла на сайт')
     args_parser.add_argument('filename',
                              nargs='?',
-                             help='Имя файла с расширением .xls/.xlsx. Значение по-умолчанию: wine3.xlsx',
-                             default='wine3.xlsx')
+                             help='Имя файла с расширением .xls/.xlsx. Значение по-умолчанию: sample.xlsx',
+                             default='sample.xlsx')
     args_parser.add_argument('sheet',
                              nargs='?',
                              help='Наименование листа Excel. Значение по-умолчанию: Лист1',
