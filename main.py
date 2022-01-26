@@ -6,11 +6,6 @@ from collections import defaultdict
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-
-def isNaN(num):
-    return num != num
-
-
 args_parser = argparse.ArgumentParser(description='Программа импортирует данные из Excel-файла на сайт')
 args_parser.add_argument('filename',
                          nargs='?',
@@ -26,17 +21,13 @@ foundation_year = 1920
 current_year = datetime.datetime.now().year
 company_age = current_year - foundation_year
 
-wines = pandas.read_excel(args.filename, sheet_name=args.sheet).to_dict(orient='record')
+wines = pandas\
+    .read_excel(args.filename, sheet_name=args.sheet, keep_default_na=False)\
+    .to_dict(orient='record')
 
 grouped_wines = defaultdict(list)
 for wine in wines:
-    for category in wine:
-        if isNaN(wine[category]):
-            wine[category] = ''
     grouped_wines[wine['Категория']].append(wine)
-
-sorted_items = sorted(grouped_wines.items(), key=lambda x: x[0])
-grouped_wines = dict(sorted_items)
 
 env = Environment(
     loader=FileSystemLoader('.'),
