@@ -36,8 +36,6 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-
-
     <div class="header-top">
       <div class="container">
         <div class="d-flex">
@@ -52,15 +50,11 @@
             </a>
           </div>
         </div>
-
-
       </div>
 
       <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-md-block" role="banner">
-
         <div class="container">
           <div class="d-flex align-items-center">
-
             <div class="mx-auto">
               <nav class="site-navigation position-relative text-left">
                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-md-block border-none">
@@ -70,14 +64,10 @@
                   <li><a href="#footer" class="nav-link text-left">Контакты</a></li>
                 </ul>
               </nav>
-
             </div>
-
           </div>
         </div>
-
       </div>
-
     </div>
 
 
@@ -115,31 +105,31 @@
 
         <div class="row">
 
-        {% for category in grouped_wines|sort() %}
-          <div class="col-12 section-title text-center mb-5">
-          <h2 class="d-block">{{category}}</h2>
-          </div>
+          {% for category in grouped_wines|sort() %}
+            <div class="col-12 section-title text-center mb-5">
+              <h2 class="d-block">{{category}}</h2>
+            </div>
 
-          {% for wine in grouped_wines[category] %}
-            <div class="col-lg-4 mb-5 col-md-6">
-              <div class="wine_v_1 text-center pb-4 pt-5">
-                <img src="images/{{wine['Картинка']}}" alt="Image" class="img-fluid">
-                {% if wine['Акция'] != '' %}
-                <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
-                {% endif %}
-                <div>
-                  <h3 class="heading mt-3 mb-3 text-dark">{{wine['Название']}}</h3>
-                  <p>
-                  {% if wine['Сорт'] != '' %}
-                    <p>Сорт винограда - {{wine['Сорт']}}</p><br/>
-                  {% endif %}
+            {% for wine in grouped_wines[category] %}
+              <div class="col-lg-4 mb-5 col-md-6">
+                <div class="wine_v_1 text-center pb-4 pt-5">
+                  <img src="images/{{wine['Картинка']}}" alt="Image" class="img-fluid">
+                    {% if wine['Акция'] != '' %}
+                      <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                    {% endif %}
+                  <div>
+                    <h3 class="heading mt-3 mb-3 text-dark">{{wine['Название']}}</h3>
+                    <p>
+                      {% if wine['Сорт'] != '' %}
+                        <p>Сорт винограда - {{wine['Сорт']}}</p><br/>
+                      {% endif %}
                       <span class="price">{{wine['Цена']}} р.</span>.
-                  </p>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            {% endfor %}
           {% endfor %}
-        {% endfor %}
 
         </div>
       </div>
