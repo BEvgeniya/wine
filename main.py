@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def main():
     args_parser = argparse.ArgumentParser(description='Программа импортирует данные из Excel-файла на сайт')
-    args_parser.add_argument('filename',
+    args_parser.add_argument('filepath',
                              nargs='?',
                              help='Имя файла с расширением .xls/.xlsx. Значение по-умолчанию: sample.xlsx',
                              default='sample.xlsx')
@@ -24,7 +24,7 @@ def main():
     company_age = current_year - foundation_year
 
     wines = pandas \
-        .read_excel(args.filename, sheet_name=args.sheet, keep_default_na=False) \
+        .read_excel(args.filepath, sheet_name=args.sheet, keep_default_na=False) \
         .to_dict(orient='record')
 
     grouped_wines = defaultdict(list)
