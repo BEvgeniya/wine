@@ -33,9 +33,6 @@ main.py [-h] [filename] [sheet]
 |  Белые вина | Белая леди| Дамский пальчик |   399 | belaya_ledi.png |Выгодное предложение  | 
 |  Напитки | Коньяк классический|  |  350|  |  | 
 
-				konyak_klassicheskyi.png	
-![image](https://user-images.githubusercontent.com/65121485/151421072-3fe4eda2-723f-4390-990d-0271794b30fd.png)
-
 					
 
 
